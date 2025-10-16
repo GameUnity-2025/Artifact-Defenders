@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: d6afda73db94c8a4385638e011501b96
+guid: b173d08c896e4ca4e8c1355304eda6dc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1449248233256182442
-    second: knight-removebg-preview_0
-  - first:
-      213: 6405808914646133178
-    second: knight-removebg-preview_1
-  - first:
-      213: 265715208809745473
-    second: knight-removebg-preview_2
+      213: -2553136598579101065
+    second: artifact_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: knight-removebg-preview_0
+      name: artifact_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 70
-        width: 145
-        height: 227
+        x: 103
+        y: 18
+        width: 296
+        height: 434
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,52 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 65d1769096c33ebe0800000000000000
-      internalID: -1449248233256182442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight-removebg-preview_1
-      rect:
-        serializedVersion: 2
-        x: 221
-        y: 70
-        width: 152
-        height: 227
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ab96388b44106e850800000000000000
-      internalID: 6405808914646133178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: knight-removebg-preview_2
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 70
-        width: 145
-        height: 227
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14c0688139200b300800000000000000
-      internalID: 265715208809745473
+      spriteID: 772c4aa6acf619cd0800000000000000
+      internalID: -2553136598579101065
       vertices: []
       indices: 
       edges: []
@@ -198,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      knight-removebg-preview_0: -1449248233256182442
-      knight-removebg-preview_1: 6405808914646133178
-      knight-removebg-preview_2: 265715208809745473
+      artifact_0: -2553136598579101065
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

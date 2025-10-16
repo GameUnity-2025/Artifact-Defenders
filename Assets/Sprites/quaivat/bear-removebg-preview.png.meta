@@ -1,0 +1,988 @@
+fileFormatVersion: 2
+guid: 009b6c6f1ec74cf41a8335f740e5cc01
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3861208000338196820
+    second: bear-removebg-preview_0
+  - first:
+      213: -6871546686711310563
+    second: bear-removebg-preview_1
+  - first:
+      213: 2646440395948708953
+    second: bear-removebg-preview_2
+  - first:
+      213: -5034019545050955444
+    second: bear-removebg-preview_3
+  - first:
+      213: -5880885954083787644
+    second: bear-removebg-preview_4
+  - first:
+      213: -111270386219085383
+    second: bear-removebg-preview_5
+  - first:
+      213: 1783935477538665544
+    second: bear-removebg-preview_6
+  - first:
+      213: -4790689712655816592
+    second: bear-removebg-preview_7
+  - first:
+      213: 864802750433805927
+    second: bear-removebg-preview_8
+  - first:
+      213: 8116937989900993399
+    second: bear-removebg-preview_9
+  - first:
+      213: 5991818210825858376
+    second: bear-removebg-preview_10
+  - first:
+      213: -9134433966847240039
+    second: bear-removebg-preview_11
+  - first:
+      213: -609756605451983273
+    second: bear-removebg-preview_12
+  - first:
+      213: -9172052844640591885
+    second: bear-removebg-preview_13
+  - first:
+      213: 514195798604308338
+    second: bear-removebg-preview_14
+  - first:
+      213: -6585731332436865261
+    second: bear-removebg-preview_15
+  - first:
+      213: 5264925723230494966
+    second: bear-removebg-preview_16
+  - first:
+      213: -6069698318599585234
+    second: bear-removebg-preview_17
+  - first:
+      213: 5155985584484412482
+    second: bear-removebg-preview_18
+  - first:
+      213: -543656287077951230
+    second: bear-removebg-preview_19
+  - first:
+      213: -7704846717501123695
+    second: bear-removebg-preview_20
+  - first:
+      213: -5600670730558622076
+    second: bear-removebg-preview_21
+  - first:
+      213: 183518497250770584
+    second: bear-removebg-preview_22
+  - first:
+      213: 3104298102103297753
+    second: bear-removebg-preview_23
+  - first:
+      213: -5409571110393699972
+    second: bear-removebg-preview_24
+  - first:
+      213: 9023938929459919860
+    second: bear-removebg-preview_25
+  - first:
+      213: 1514130137176155504
+    second: bear-removebg-preview_26
+  - first:
+      213: -2432029208653213699
+    second: bear-removebg-preview_27
+  - first:
+      213: -6229557786051016391
+    second: bear-removebg-preview_28
+  - first:
+      213: -4479130006390595650
+    second: bear-removebg-preview_29
+  - first:
+      213: 659752637905290492
+    second: bear-removebg-preview_30
+  - first:
+      213: 127510654562317666
+    second: bear-removebg-preview_31
+  - first:
+      213: -8514877441169487010
+    second: bear-removebg-preview_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bear-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 315
+        width: 78
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca602fff7cb3a6ac0800000000000000
+      internalID: -3861208000338196820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 315
+        width: 79
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d175f0902bc53a0a0800000000000000
+      internalID: -6871546686711310563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 315
+        width: 80
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95454c7c48b0ab420800000000000000
+      internalID: 2646440395948708953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 315
+        width: 80
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c414dd825e1932ab0800000000000000
+      internalID: -5034019545050955444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 315
+        width: 80
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48c604e0265e26ea0800000000000000
+      internalID: -5880885954083787644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 315
+        width: 80
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b1146b5c20b47ef0800000000000000
+      internalID: -111270386219085383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 329
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 844b8e87ddfc1c810800000000000000
+      internalID: 1783935477538665544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 334
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0782808a61d048db0800000000000000
+      internalID: -4790689712655816592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 328
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76643640585600c00800000000000000
+      internalID: 864802750433805927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 334
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7730cefa81825a070800000000000000
+      internalID: 8116937989900993399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 329
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84dedfeaae6372350800000000000000
+      internalID: 5991818210825858376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 246
+        width: 78
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 998dec514b8fb3180800000000000000
+      internalID: -9134433966847240039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 246
+        width: 80
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75626941995b987f0800000000000000
+      internalID: -609756605451983273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 246
+        width: 79
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff161e888256b080800000000000000
+      internalID: -9172052844640591885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 246
+        width: 82
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27fdec0ca5ac22700800000000000000
+      internalID: 514195798604308338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 246
+        width: 84
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31fc0ffee38ca94a0800000000000000
+      internalID: -6585731332436865261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 246
+        width: 80
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f068fdec06c01940800000000000000
+      internalID: 5264925723230494966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 183
+        width: 78
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e220612b98914cba0800000000000000
+      internalID: -6069698318599585234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 183
+        width: 82
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24c6a3e429dbd8740800000000000000
+      internalID: 5155985584484412482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 183
+        width: 78
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2099fc0cc7b8478f0800000000000000
+      internalID: -543656287077951230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 183
+        width: 75
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 193d2828bb2e21590800000000000000
+      internalID: -7704846717501123695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 182
+        width: 71
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4863029e4ab6642b0800000000000000
+      internalID: -5600670730558622076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 183
+        width: 76
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e7856d91dfb8200800000000000000
+      internalID: 183518497250770584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 90
+        width: 71
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9de49c43daea41b20800000000000000
+      internalID: 3104298102103297753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 89
+        width: 62
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c71a4c97cb75de4b0800000000000000
+      internalID: -5409571110393699972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 89
+        width: 88
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fbf64d35a87b3d70800000000000000
+      internalID: 9023938929459919860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 89
+        width: 65
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 075291a6655430510800000000000000
+      internalID: 1514130137176155504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 89
+        width: 73
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dffc9d6f152bf3ed0800000000000000
+      internalID: -2432029208653213699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_28
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 89
+        width: 76
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93909aef23a2c89a0800000000000000
+      internalID: -6229557786051016391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_29
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 18
+        width: 59
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebf9b4a9dfee6d1c0800000000000000
+      internalID: -4479130006390595650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_30
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 19
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf4c8f55789e72900800000000000000
+      internalID: 659752637905290492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_31
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 19
+        width: 87
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 265b346c34205c100800000000000000
+      internalID: 127510654562317666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bear-removebg-preview_32
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 12
+        width: 90
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b0b1db41415d980800000000000000
+      internalID: -8514877441169487010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bear-removebg-preview_0: -3861208000338196820
+      bear-removebg-preview_1: -6871546686711310563
+      bear-removebg-preview_10: 5991818210825858376
+      bear-removebg-preview_11: -9134433966847240039
+      bear-removebg-preview_12: -609756605451983273
+      bear-removebg-preview_13: -9172052844640591885
+      bear-removebg-preview_14: 514195798604308338
+      bear-removebg-preview_15: -6585731332436865261
+      bear-removebg-preview_16: 5264925723230494966
+      bear-removebg-preview_17: -6069698318599585234
+      bear-removebg-preview_18: 5155985584484412482
+      bear-removebg-preview_19: -543656287077951230
+      bear-removebg-preview_2: 2646440395948708953
+      bear-removebg-preview_20: -7704846717501123695
+      bear-removebg-preview_21: -5600670730558622076
+      bear-removebg-preview_22: 183518497250770584
+      bear-removebg-preview_23: 3104298102103297753
+      bear-removebg-preview_24: -5409571110393699972
+      bear-removebg-preview_25: 9023938929459919860
+      bear-removebg-preview_26: 1514130137176155504
+      bear-removebg-preview_27: -2432029208653213699
+      bear-removebg-preview_28: -6229557786051016391
+      bear-removebg-preview_29: -4479130006390595650
+      bear-removebg-preview_3: -5034019545050955444
+      bear-removebg-preview_30: 659752637905290492
+      bear-removebg-preview_31: 127510654562317666
+      bear-removebg-preview_32: -8514877441169487010
+      bear-removebg-preview_4: -5880885954083787644
+      bear-removebg-preview_5: -111270386219085383
+      bear-removebg-preview_6: 1783935477538665544
+      bear-removebg-preview_7: -4790689712655816592
+      bear-removebg-preview_8: 864802750433805927
+      bear-removebg-preview_9: 8116937989900993399
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

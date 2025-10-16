@@ -1,32 +1,48 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Component responsible of wolf movement, target finding, attack and bush eating
+/// Enemy logic: move, attack artifact or eat bushes, and take damage.
+/// Combined from original + extended version.
 /// </summary>
 public class EnemyAI : MonoBehaviour
 {
-    //True if the enemy is a red wolf and eats bushes instead of attacking the artifact.
-    [SerializeField] bool isEater;
-    [SerializeField] float moveSpeed;
+    [Header("Type")]
+    [SerializeField] bool isEater = false; // nếu true thì ăn cây, nếu false thì đánh trụ
 
-    [SerializeField] int attackDamage;
-    [SerializeField] float attackTime;
-    [SerializeField] float eatTime;
+    [Header("Stats")]
+    [SerializeField] float moveSpeed = 2f;
+    [SerializeField] int maxHealth = 10;
+    [SerializeField] int attackDamage = 1;
+    [SerializeField] float attackCooldown = 1.5f;
+    [SerializeField] float eatTime = 1.2f;
 
+    [Header("Target Masks")]
     [SerializeField] LayerMask bushesMask;
 
     [HideInInspector] public bool isMoving;
     [HideInInspector] public bool left;
-    
-    Artifact artifact;
+    [HideInInspector] public bool isAttacking;
+    [HideInInspector] public bool isHurt;
+    [HideInInspector] public bool isDead;
 
-    BushFruits target;
-    float attackTimer; 
+    // trạng thái
+    int currentHealth;
+    float attackTimer;
     float eatTimer;
     bool killingBush;
     bool attacking;
+    public int CurrentHealth => currentHealth;
+    public int MaxHealth => maxHealth;
+
+    // mục tiêu
+    Artifact artifact;
+    BushFruits target;
+
+    void Awake()
+    {
+        currentHealth = maxHealth;
+    }
 
     void Start()
     {
@@ -37,128 +53,177 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            attacking = false;
             artifact = GameObject.FindGameObjectWithTag("Artifact").GetComponent<Artifact>();
+            attacking = false;
+        }
+
+        // Đồng bộ EnemyHealth UI
+        EnemyHealth eh = GetComponent<EnemyHealth>();
+        if (eh != null)
+        {
+            eh.max = maxHealth;
+            eh.current = currentHealth;
         }
     }
 
     void Update()
     {
-        if (isEater)
+        if (isDead) return;
+
+        if (isHurt)
         {
-            //Main eater wolf logic:
-            if(target != null && target.enabled == true && target.HasFruits() && !killingBush)
+            // vẫn giữ hướng đúng
+            if (artifact != null)
+                left = artifact.transform.position.x < transform.position.x;
+            return;
+        }
+
+        if (isEater) HandleEater();
+        else HandleAttacker();
+    }
+
+    // === EATER LOGIC ===
+    void HandleEater()
+    {
+        if (target != null && target.enabled && target.HasFruits() && !killingBush)
+        {
+            // nếu chưa tới nơi thì di chuyển
+            if (Vector2.Distance(transform.position, target.transform.position) > 0.5f)
             {
-                //If not close enough to bush, continue walking towards it, else stop and eat the bush.
-                if (Vector2.Distance(transform.position, target.transform.position) > 0.5f)
-                {
-                    float step = moveSpeed * Time.deltaTime;
-                    transform.position = Vector2.MoveTowards(transform.position, target.transform.position, step);
-                    isMoving = true;
-                }
-                else
-                {
-                    isMoving = false;
-                    target.HarvestFruit();
-                    eatTimer = Time.time + eatTime;
-                    killingBush = true;
-                }
-            }
-            else if (killingBush)
-            {
-                //Wait for eatTimer, then search next closest bush.
-                if(Time.time > eatTimer)
-                {
-                    target.EatBush();
-                    killingBush = false;
-                    SearchForTarget();
-                }
-            }
-            else //In some cases, a wolf can target the same bush that other wolf targeted, so when the other wolf eats it, its no longer valid for this wolf to continue targeting it.
-            {
-                SearchForTarget();
-            }
-            //target based sprite flipping.
-            if (target.transform.position.x < transform.position.x)
-            {
-                left = true;
+                MoveTowards(target.transform.position);
             }
             else
             {
-                left = false;
+                isMoving = false;
+                isAttacking = true;
+                target.HarvestFruit();
+                eatTimer = Time.time + eatTime;
+                killingBush = true;
             }
-            //Error handling
-            if(target == null)
+        }
+        else if (killingBush)
+        {
+            if (Time.time > eatTimer)
             {
+                target.EatBush();
+                killingBush = false;
+                isAttacking = false;
                 SearchForTarget();
             }
         }
         else
         {
-            //Main attacker wolf logic:
-            if(Vector2.Distance(transform.position, artifact.transform.position) > 1.5f)
-            {
-                //if not close enough to artifact, continue moving
-                float step = moveSpeed * Time.deltaTime;
-                transform.position = Vector2.MoveTowards(transform.position, artifact.transform.position, step);
-                isMoving = true;
-            }
-            else if(!attacking)
-            {
-                //Start attacking when close enough
-                attacking = true;
-                attackTimer = Time.time + attackTime;
-                isMoving = false;
-            }
+            SearchForTarget();
+        }
 
-            if (attacking)
+        if (target != null)
+            left = target.transform.position.x < transform.position.x;
+    }
+
+
+
+    // === ATTACKER LOGIC ===
+    void HandleAttacker()
+    {
+        if (artifact == null) return;
+
+        float distance = Vector2.Distance(transform.position, artifact.transform.position);
+
+        if (distance > 1.5f)
+        {
+            MoveTowards(artifact.transform.position);
+        }
+        else
+        {
+            isMoving = false;
+
+            if (!isAttacking && Time.time > attackTimer)
             {
-                if(Time.time > attackTimer)
-                {
-                    Attack();
-                    attackTimer = Time.time + attackTime;
-                }
-            }
-            //Artifact based sprite flipping
-            if (artifact.transform.position.x < transform.position.x)
-            {
-                left = true;
-            }
-            else
-            {
-                left = false;
+                StartCoroutine(AttackRoutine());
+                attackTimer = Time.time + attackCooldown;
             }
         }
+
+        left = artifact.transform.position.x < transform.position.x;
     }
+
+    IEnumerator AttackRoutine()
+    {
+        isAttacking = true;
+        // chờ animation tấn công 0.5s hoặc dài hơn tuỳ bạn
+        Attack();
+        yield return new WaitForSeconds(0.6f);
+        isAttacking = false;
+    }
+
+
+    void MoveTowards(Vector3 targetPos)
+    {
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+        isMoving = true;
+        isAttacking = false;
+    }
+
     void Attack()
     {
         artifact.Damage(attackDamage);
     }
-    /// <summary>
-    /// This is a interesting one, instead of spamming <see cref="Vector2.Distance(Vector2, Vector2)"/> to search for a close bush,
-    /// the wolf will start overlapping circles, each one exponentialy bigger than the previous one in a increasing loop, ending as soon as it hits a bush.
-    /// <para>The loop finds a bush at around 2-4 iterations in most cases, more or less a median of 3 <see cref="Physics2D.OverlapCircleAll(Vector2, float)"/> calls per method call.</para>
-    /// </summary>
+
+    // === TÌM BỤI CÂY GẦN NHẤT ===
     void SearchForTarget()
     {
         target = null;
-        for (int i = 1; i < 50; i++) //iterate with a safe value of 50
+        for (int i = 1; i < 50; i++)
         {
-            Collider2D[] hits =
-            Physics2D.OverlapCircleAll(transform.position, Mathf.Exp(i), bushesMask);
-
-            foreach(Collider2D hit in hits)
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, Mathf.Exp(i), bushesMask);
+            foreach (Collider2D hit in hits)
             {
-                if (hit != null && (hit.GetComponent<BushFruits>().HasFruits()) && hit.GetComponent<BushFruits>().enabled == true)
+                BushFruits bush = hit.GetComponent<BushFruits>();
+                if (bush != null && bush.enabled && bush.HasFruits())
                 {
-                    target = hit.GetComponent<BushFruits>();
-                    break;
+                    target = bush;
+                    return;
                 }
             }
-            if(target != null)
-            {
-                break; //end the main for loop once we are sure that target is not null
-            }
         }
+    }
+
+    // === NHẬN SÁT THƯƠNG ===
+    public void TakeDamage(int dmg)
+    {
+        if (isDead) return;
+
+        currentHealth = Mathf.Max(0, currentHealth - dmg);
+
+        EnemyHealth eh = GetComponent<EnemyHealth>();
+        if (eh != null) eh.current = currentHealth;
+
+        if (currentHealth > 0)
+            StartCoroutine(HurtRoutine());
+        else
+            StartCoroutine(DieRoutine());
+    }
+
+    IEnumerator HurtRoutine()
+    {
+        isHurt = true;
+        isMoving = false;
+        isAttacking = false;
+        yield return new WaitForSeconds(0.4f);
+        isHurt = false;
+    }
+
+    IEnumerator DieRoutine()
+    {
+        isDead = true;
+        isMoving = false;
+        isAttacking = false;
+        isHurt = false;
+
+        EnemyHealth eh = GetComponent<EnemyHealth>();
+        if (eh != null) eh.current = 0;
+
+        yield return new WaitForSeconds(1.0f);
+        Destroy(gameObject);
     }
 }

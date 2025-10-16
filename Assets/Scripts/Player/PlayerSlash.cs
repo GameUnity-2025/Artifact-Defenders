@@ -35,10 +35,15 @@ public class PlayerSlash : MonoBehaviour
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, new Vector2(2,1.5f), pivot.rotation.z, enemyMask);
         if(hits.Length != 0)
         {
-            foreach(Collider2D hit in hits)
+            foreach (Collider2D hit in hits)
             {
-                hit.GetComponent<EnemyHealth>().DamageEnemy(damage);
+                EnemyAI enemy = hit.GetComponent<EnemyAI>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1); // hoặc damage nếu bạn muốn tính theo Player
+                }
             }
+
         }
     }
 }

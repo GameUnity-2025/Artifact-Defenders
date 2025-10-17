@@ -4991,8 +4991,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1523733976547028258}
-  - {fileID: 6060242505721527790}
   - {fileID: 2831196818176362532}
+  - {fileID: 6060242505721527790}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6060242505385302409
@@ -5068,8 +5068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEater: 0
   moveSpeed: 1
-  maxHealth: 3
-  attackDamage: 5
+  maxHealth: 30
+  attackDamage: 1
   attackCooldown: 3
   eatTime: 0
   bushesMask:
@@ -5373,7 +5373,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 7000
   m_Sprite: {fileID: 21300000, guid: 7a9d97615136b0b48be01a8e4f20683f, type: 3}
-  m_Color: {r: 0.40784317, g: 0.68235296, b: 0.48235297, a: 1}
+  m_Color: {r: 0.1960784, g: 0.8039216, b: 0.1960784, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

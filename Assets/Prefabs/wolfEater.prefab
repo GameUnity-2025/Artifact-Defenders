@@ -5068,7 +5068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEater: 1
   moveSpeed: 1
-  maxHealth: 3
+  maxHealth: 25
   attackDamage: 0
   attackCooldown: 0
   eatTime: 2
@@ -5092,7 +5092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436f7e6e3ff0e154999ecbb3483dd997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 60
+  max: 100
   current: 0
 --- !u!114 &8011127346797358266
 MonoBehaviour:
@@ -5373,7 +5373,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 7000
   m_Sprite: {fileID: 21300000, guid: 7a9d97615136b0b48be01a8e4f20683f, type: 3}
-  m_Color: {r: 0.40784317, g: 0.68235296, b: 0.48235297, a: 1}
+  m_Color: {r: 0.1960784, g: 0.8039216, b: 0.1960784, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

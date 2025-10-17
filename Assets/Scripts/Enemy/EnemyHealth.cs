@@ -2,8 +2,8 @@
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int max;
-    public int current;
+    [HideInInspector] public int max;
+     public int current;
 
     EnemyAI ai;
 

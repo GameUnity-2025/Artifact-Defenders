@@ -40,7 +40,7 @@ public class PlayerSlash : MonoBehaviour
                 EnemyAI enemy = hit.GetComponent<EnemyAI>();
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(1); // hoặc damage nếu bạn muốn tính theo Player
+                    enemy.TakeDamage(damage); // hoặc damage nếu bạn muốn tính theo Player
                 }
             }
 

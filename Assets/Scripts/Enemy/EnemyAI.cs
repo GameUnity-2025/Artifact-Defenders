@@ -85,30 +85,33 @@ public class EnemyAI : MonoBehaviour
     // === EATER LOGIC ===
     void HandleEater()
     {
-        if (target != null && target.enabled && target.HasFruits() && !killingBush)
+        if (target == null || !target.enabled)
         {
-            // nếu chưa tới nơi thì di chuyển
-            if (Vector2.Distance(transform.position, target.transform.position) > 0.5f)
+            SearchForTarget();
+            return;
+        }
+
+        float dist = Vector2.Distance(transform.position, target.transform.position);
+
+        // Nếu còn trái và chưa ăn bụi
+        if (target.HasFruits() && !killingBush)
+        {
+            if (dist > 0.5f)
             {
                 MoveTowards(target.transform.position);
             }
-            else
+            else if (!isAttacking)
             {
                 isMoving = false;
-                isAttacking = true;
-                target.HarvestFruit();
-                eatTimer = Time.time + eatTime;
-                killingBush = true;
+                StartCoroutine(EatRoutine());
             }
         }
         else if (killingBush)
         {
-            if (Time.time > eatTimer)
+            if (Time.time > eatTimer && !isAttacking)
             {
-                target.EatBush();
-                killingBush = false;
-                isAttacking = false;
-                SearchForTarget();
+                isMoving = false;
+                StartCoroutine(EatRoutine());
             }
         }
         else
@@ -120,6 +123,32 @@ public class EnemyAI : MonoBehaviour
             left = target.transform.position.x < transform.position.x;
     }
 
+    IEnumerator EatRoutine()
+    {
+        isAttacking = true;
+
+
+        yield return new WaitForSeconds(0.45f); // frame 4: thực hiện ăn
+
+        if (target != null && target.enabled)
+        {
+            if (target.HasFruits())
+            {
+                target.HarvestFruit();
+                eatTimer = Time.time + eatTime;
+                killingBush = true;
+            }
+            else
+            {
+                target.EatBush();
+                killingBush = false;
+                SearchForTarget();
+            }
+        }
+
+        yield return new WaitForSeconds(0.15f); // frame 5: kết thúc animation
+        isAttacking = false;
+    }
 
 
     // === ATTACKER LOGIC ===
@@ -150,11 +179,13 @@ public class EnemyAI : MonoBehaviour
     IEnumerator AttackRoutine()
     {
         isAttacking = true;
-        // chờ animation tấn công 0.5s hoặc dài hơn tuỳ bạn
+        yield return null;
+        yield return new WaitForSeconds(0.45f);
         Attack();
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.15f);
         isAttacking = false;
     }
+
 
 
     void MoveTowards(Vector3 targetPos)

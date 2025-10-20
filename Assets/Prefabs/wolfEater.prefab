@@ -5068,10 +5068,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEater: 1
   moveSpeed: 1
-  maxHealth: 25
+  maxHealth: 40
   attackDamage: 0
   attackCooldown: 0
-  eatTime: 2
+  eatTime: 3
   bushesMask:
     serializedVersion: 2
     m_Bits: 512

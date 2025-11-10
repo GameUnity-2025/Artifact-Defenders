@@ -19,7 +19,6 @@ public class WolfAnim : MonoBehaviour
     private float timer;
     private bool isDead = false;
 
-    // New fields
     private Sprite[] lastAnim = null;
     private bool isPlayingOnce = false;
     private Coroutine playOnceCoroutine = null;
@@ -32,15 +31,11 @@ public class WolfAnim : MonoBehaviour
 
     void Update()
     {
-        if (isDead) return; // stop updating after death animation finishes
+        if (isDead) return; 
 
-        // Choose current animation
         Sprite[] currentAnim = GetCurrentAnim();
-
-        // Guard: if no sprites provided, do nothing
         if (currentAnim == null || currentAnim.Length == 0) return;
 
-        // Reset frame when animation changes
         if (currentAnim != lastAnim)
         {
             lastAnim = currentAnim;
@@ -49,7 +44,6 @@ public class WolfAnim : MonoBehaviour
             spriteRenderer.sprite = currentAnim[frameIndex];
         }
 
-        // Run animation unless a PlayOnce coroutine is active
         if (!isPlayingOnce)
         {
             if (Time.time >= timer)
@@ -60,13 +54,11 @@ public class WolfAnim : MonoBehaviour
             }
         }
 
-        // Flip sprite according to AI
         spriteRenderer.flipX = enemyAI.left;
     }
 
     private Sprite[] GetCurrentAnim()
     {
-        // Death has highest priority; play once
         if (enemyAI.isDead)
         {
             if (playOnceCoroutine == null)
@@ -74,7 +66,6 @@ public class WolfAnim : MonoBehaviour
             return deathSprites;
         }
 
-        // Hurt plays once, then clears isHurt on EnemyAI
         if (enemyAI.isHurt)
         {
             if (playOnceCoroutine == null)
@@ -95,7 +86,6 @@ public class WolfAnim : MonoBehaviour
     {
         if (anim == null || anim.Length == 0)
         {
-            // Nothing to play; ensure flags are cleaned up
             if (dieAfter) isDead = true;
             else enemyAI.isHurt = false;
             playOnceCoroutine = null;
@@ -104,26 +94,21 @@ public class WolfAnim : MonoBehaviour
 
         isPlayingOnce = true;
 
-        // Play all frames once
         for (int i = 0; i < anim.Length; i++)
         {               
             spriteRenderer.sprite = anim[i];
             yield return new WaitForSeconds(frameTime);
         }
 
-        // After playing
         isPlayingOnce = false;
         playOnceCoroutine = null;
 
-        // If this was the death animation, stop future updates
         if (dieAfter)
         {
             isDead = true;
-            // ensure final death frame stays (last frame already set)
         }
         else
         {
-            // Clear hurt flag on AI so animation can return to normal state
             enemyAI.isHurt = false;
         }
 
@@ -133,7 +118,6 @@ public class WolfAnim : MonoBehaviour
             spriteRenderer.sprite = anim[anim.Length - 1];
         }
 
-        // Reset timers so next animation begins cleanly
         frameIndex = 0;
         timer = Time.time + frameTime;
     }

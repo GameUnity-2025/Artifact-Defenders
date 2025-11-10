@@ -20,6 +20,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float spawnTime;
     [SerializeField] float spawnReductionPer;
     [SerializeField] float spawnFloor;
+    [SerializeField] float bossSpawnTime = 20f; // Boss xuất hiện khi còn 20s
+
+    Manager gameManager;
 
     // Danh sách kẻ thù khó (Khởi tạo trước để tái sử dụng)
     private Transform[] hardEnemies;
@@ -28,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
 
     float currentSpawnTime;
     float timer;
+    bool bossSpawned = false;
 
     void Start()
     {
@@ -36,14 +40,22 @@ public class EnemySpawner : MonoBehaviour
         hardEnemies = new Transform[] { wolfEaterPrefab, enemy00Prefab };
 
         // Nhóm Thường: wolfPrefab và enemy01Prefab
-        commonEnemies = new Transform[] { wolfPrefab, enemy01Prefab, BossPrefab };
+        commonEnemies = new Transform[] { wolfPrefab, enemy01Prefab };
 
         currentSpawnTime = spawnTime;
         timer = Time.time;
+
+        gameManager = FindObjectOfType<Manager>();
     }
 
     void Update()
     {
+        if (!bossSpawned && gameManager != null && gameManager.GetTime() <= bossSpawnTime)
+        {
+            SpawnBoss();
+            bossSpawned = true;
+        }
+
         if (Time.time > timer)
         {
             Spawn();
@@ -55,6 +67,13 @@ public class EnemySpawner : MonoBehaviour
             }
             timer = Time.time + currentSpawnTime;
         }
+    }
+
+    void SpawnBoss()
+    {
+        Vector3 spawnPosition = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
+        Instantiate(BossPrefab, spawnPosition, Quaternion.identity);
+        Debug.Log("⚠️ BOSS SPAWNED AT 20s!");
     }
 
     void Spawn()

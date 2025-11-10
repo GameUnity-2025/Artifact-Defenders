@@ -8,7 +8,7 @@ public class UpgradeItem : MonoBehaviour
     public float moveSpeed = 5f;
     private Transform player;
     private bool isBeingPulled = false;
-    [SerializeField] private float attackIncrease = 2f;  // mức tăng damage khi nhặt đá Attack
+    [SerializeField] private int attackIncrease = 2;  // mức tăng damage khi nhặt đá Attack
 
     void Start()
     {
@@ -49,8 +49,11 @@ public class UpgradeItem : MonoBehaviour
                 PlayerSlash slash = other.GetComponentInChildren<PlayerSlash>();
                 if (slash != null)
                 {
-                    slash.damage += 2; // mỗi viên +2 damage
-                    Debug.Log($"+2 Damage! New Damage: {slash.damage}");
+                    slash.damage += attackIncrease; // mỗi viên +2 damage
+                    Debug.Log($"+{attackIncrease} Damage! New Damage: {slash.damage}");
+                    PlayerAttackUI ui = FindObjectOfType<PlayerAttackUI>();
+                    if (ui != null)
+                        ui.UpdateAttackText(slash.damage);
                 }
                 break;
         }

@@ -76,4 +76,10 @@ public class PlayerHarvest : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, harvestRadius);
     }
+
+    public void OnHarvestButtonPressed()
+    {
+        TryHarvestClose();
+    }
+
 }

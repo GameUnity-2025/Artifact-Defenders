@@ -9,18 +9,17 @@ public class BossAnim : MonoBehaviour
     [SerializeField] private Sprite[] attackSprites;
     [SerializeField] private Sprite[] hurtSprites;
     [SerializeField] private Sprite[] deathSprites;
+    [SerializeField] private Sprite[] castSprites; // Thêm sprites cho kỹ năng
 
     [Header("Animation Settings")]
     [SerializeField] private float frameTime = 0.15f;
-    [SerializeField] private float attackFrameTime = 0.08f; // tốc độ khung hình riêng cho animation tấn công
 
     private SpriteRenderer spriteRenderer;
-    private EnemyAI enemyAI;
+    private BossAI bossAI;
     private int frameIndex = 0;
     private float timer;
     private bool isDead = false;
 
-    // Các trường phụ trợ
     private Sprite[] lastAnim = null;
     private bool isPlayingOnce = false;
     private Coroutine playOnceCoroutine = null;
@@ -28,7 +27,7 @@ public class BossAnim : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        enemyAI = GetComponent<EnemyAI>();
+        bossAI = GetComponent<BossAI>();
     }
 
     void Update()
@@ -38,12 +37,11 @@ public class BossAnim : MonoBehaviour
         Sprite[] currentAnim = GetCurrentAnim();
         if (currentAnim == null || currentAnim.Length == 0) return;
 
-        // Nếu animation thay đổi, reset lại
         if (currentAnim != lastAnim)
         {
             lastAnim = currentAnim;
             frameIndex = 0;
-            timer = Time.time + GetFrameTime(currentAnim);
+            timer = Time.time + frameTime;
             spriteRenderer.sprite = currentAnim[frameIndex];
         }
 
@@ -53,43 +51,39 @@ public class BossAnim : MonoBehaviour
             {
                 frameIndex = (frameIndex + 1) % currentAnim.Length;
                 spriteRenderer.sprite = currentAnim[frameIndex];
-                timer = Time.time + GetFrameTime(currentAnim);
+                timer = Time.time + frameTime;
             }
         }
 
-        spriteRenderer.flipX = enemyAI.left;
+        spriteRenderer.flipX = bossAI.left;
     }
 
     private Sprite[] GetCurrentAnim()
     {
-        if (enemyAI.isDead)
+        if (bossAI.isDead)
         {
             if (playOnceCoroutine == null)
                 playOnceCoroutine = StartCoroutine(PlayOnce(deathSprites, true));
             return deathSprites;
         }
 
-        if (enemyAI.isHurt)
+        if (bossAI.isHurt)
         {
             if (playOnceCoroutine == null)
                 playOnceCoroutine = StartCoroutine(PlayOnce(hurtSprites, false));
             return hurtSprites;
         }
 
-        if (enemyAI.isAttacking)
+        if (bossAI.isCasting)
+            return castSprites; // Animation cast chạy bình thường
+
+        if (bossAI.isAttacking)
             return attackSprites;
 
-        if (enemyAI.isMoving)
+        if (bossAI.isMoving)
             return walkSprites;
 
         return idleSprites;
-    }
-
-    // Xác định tốc độ hiển thị frame theo loại animation
-    private float GetFrameTime(Sprite[] anim)
-    {
-        if (anim == attackSprites) return attackFrameTime; // nhanh hơn khi tấn công
-        return frameTime;
     }
 
     private IEnumerator PlayOnce(Sprite[] anim, bool dieAfter)
@@ -97,19 +91,17 @@ public class BossAnim : MonoBehaviour
         if (anim == null || anim.Length == 0)
         {
             if (dieAfter) isDead = true;
-            else enemyAI.isHurt = false;
+            else bossAI.isHurt = false;
             playOnceCoroutine = null;
             yield break;
         }
 
         isPlayingOnce = true;
 
-        float currentFrameTime = GetFrameTime(anim);
-
         for (int i = 0; i < anim.Length; i++)
         {
             spriteRenderer.sprite = anim[i];
-            yield return new WaitForSeconds(currentFrameTime);
+            yield return new WaitForSeconds(frameTime);
         }
 
         isPlayingOnce = false;
@@ -118,11 +110,16 @@ public class BossAnim : MonoBehaviour
         if (dieAfter)
         {
             isDead = true;
-            spriteRenderer.sprite = anim[anim.Length - 1];
         }
         else
         {
-            enemyAI.isHurt = false;
+            bossAI.isHurt = false;
+        }
+
+        if (dieAfter)
+        {
+            isDead = true;
+            spriteRenderer.sprite = anim[anim.Length - 1];
         }
 
         frameIndex = 0;

@@ -89,4 +89,11 @@ public class ArtifactUpgrade : MonoBehaviour
         if (laserAttack != null)
             laserAttack.enabled = (level >= 3);
     }
+
+    // Gọi từ nút UI
+    public void OnUpgradeButtonPressed()
+    {
+        TryUpgrade();
+    }
+
 }

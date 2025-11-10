@@ -172,4 +172,4 @@ MonoBehaviour:
   stoneType: 1
   pickupRadius: 2
   moveSpeed: 4
-  attackIncrease: 0.5
+  attackIncrease: 1

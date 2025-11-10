@@ -14,6 +14,9 @@ public class SpinAttackSkill : MonoBehaviour
     [Min(0.05f)] public float duration = 0.45f;
     [Min(0f)] public float cooldown = 0.8f;
 
+    [Header("Mana Cost")]                 //Mana
+    public int manaCost = 25;
+
     [Header("Targets")]
     public LayerMask enemyMask;                // để 0 sẽ tự lấy “Enemy”
     public Transform weaponPivot;              // optional: xoay vũ khí
@@ -30,6 +33,8 @@ public class SpinAttackSkill : MonoBehaviour
     float lastUse = -999f;
     bool running;
     readonly Dictionary<Transform, float> lastHit = new();
+
+    PlayerMana playerMana;
 
     int fIdx;
     float fTimer;
@@ -51,12 +56,20 @@ public class SpinAttackSkill : MonoBehaviour
 
         // bắt thử component điều khiển sprite cũ (đúng tên thì càng tốt)
         otherSpriteAnimator = GetComponent("PlayerSpriteAnim");
+
+        playerMana = GetComponent<PlayerMana>();
     }
 
     public void TryUse()
     {
         if (running) return;
         if (Time.time < lastUse + cooldown) return;
+
+        if (playerMana == null)
+        {
+            return;
+        }
+        if (!playerMana.TryUseMana(manaCost)) return;
 
         lastUse = Time.time;
         fIdx = 0;
@@ -65,7 +78,7 @@ public class SpinAttackSkill : MonoBehaviour
         // LƯU trạng thái renderer rồi BẬT nó lên (overlay mặc định đang tắt)
         if (bodyRenderer)
         {
-            originalSprite  = bodyRenderer.sprite;
+            originalSprite = bodyRenderer.sprite;
             originalEnabled = bodyRenderer.enabled;
             bodyRenderer.enabled = true;                  // quan trọng cho overlay
             if (spinFrames != null && spinFrames.Length > 0)
@@ -109,7 +122,18 @@ public class SpinAttackSkill : MonoBehaviour
             {
                 nextTick += step;
 
-                int n = Physics2D.OverlapCircleNonAlloc(transform.position, radius, hitsBuf, enemyMask);
+                ContactFilter2D filter = new ContactFilter2D();
+                filter.useLayerMask = true;
+                filter.layerMask = enemyMask;
+                filter.useTriggers = true;
+
+                int n = Physics2D.OverlapCircle(
+                    transform.position,
+                    radius,
+                    filter,
+                    hitsBuf
+                );
+
                 for (int i = 0; i < n; i++)
                 {
                     var col = hitsBuf[i];
@@ -137,7 +161,7 @@ public class SpinAttackSkill : MonoBehaviour
 
         if (bodyRenderer)
         {
-            bodyRenderer.sprite  = originalSprite;
+            bodyRenderer.sprite = originalSprite;
             bodyRenderer.enabled = originalEnabled;       // overlay sẽ tắt lại, body thì giữ nguyên
         }
 

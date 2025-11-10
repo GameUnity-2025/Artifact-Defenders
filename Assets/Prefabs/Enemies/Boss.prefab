@@ -4964,12 +4964,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6060242505385302422}
   - component: {fileID: 6060242505385302409}
-  - component: {fileID: 6060242505385302420}
   - component: {fileID: 6060242505385302423}
   - component: {fileID: 6060242505385302418}
+  - component: {fileID: 5798887289353303246}
+  - component: {fileID: -3365899748133386720}
   - component: {fileID: 6060242505385302419}
   - component: {fileID: 1348870525080491595}
-  - component: {fileID: -3365899748133386720}
   m_Layer: 12
   m_Name: Boss
   m_TagString: Untagged
@@ -5041,7 +5041,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4932
   m_Sprite: {fileID: 21300000, guid: ec41e08a9fb909e418b45994dad053b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5053,35 +5053,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6060242505385302420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6060242505385302408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f18aba9a524f9b45b0d4a30521959b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEater: 0
-  moveSpeed: 1
-  maxHealth: 100
-  attackDamage: 10
-  attackCooldown: 4
-  eatTime: 0
-  bushesMask:
-    serializedVersion: 2
-    m_Bits: 0
-  isMoving: 0
-  left: 0
-  isAttacking: 0
-  isHurt: 0
-  isDead: 0
-  UpgradeItems:
-  - {fileID: 3586346103520735342, guid: 55f033b582666bd48af6496b31310fc3, type: 3}
-  - {fileID: 3586346103520735342, guid: 5bafdac972fab654ca4f0f3336834ddd, type: 3}
 --- !u!114 &6060242505385302423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5111,6 +5082,104 @@ MonoBehaviour:
   sortingOrderBase: 5000
   offset: -0.37
   runOnlyOnce: 0
+--- !u!114 &5798887289353303246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060242505385302408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd895ff1fa262449bb529fcb281ea94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAI
+  moveSpeed: 2
+  maxHealth: 100
+  attackDamage: 5
+  attackCooldown: 4
+  attacksBeforeSkill: 3
+  skillCastTime: 2
+  skillDamage: 5
+  spellEffectPrefab: {fileID: 1130483950817898777, guid: 238b5ecb0a34bc2429c1d13ef29e00af,
+    type: 3}
+  spellOffset: {x: -0.25, y: 1.75, z: 0}
+  isMoving: 0
+  left: 0
+  isAttacking: 0
+  isHurt: 0
+  isDead: 0
+  isCasting: 0
+  UpgradeItems:
+  - {fileID: 3586346103520735342, guid: 55f033b582666bd48af6496b31310fc3, type: 3}
+  - {fileID: 3586346103520735342, guid: 5bafdac972fab654ca4f0f3336834ddd, type: 3}
+--- !u!114 &-3365899748133386720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060242505385302408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ae6c7465386c9b4884cf4e74291c4fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAnim
+  idleSprites:
+  - {fileID: 21300000, guid: ec41e08a9fb909e418b45994dad053b7, type: 3}
+  - {fileID: 21300000, guid: 16d8cccf85d8e074b9292782bad95adb, type: 3}
+  - {fileID: 21300000, guid: 34b236eb5fd0fc54f98eec75b38946c3, type: 3}
+  - {fileID: 21300000, guid: 190d3be58d2303f489c3f70ebbc3650b, type: 3}
+  - {fileID: 21300000, guid: d290f9006b66db040a4950dc130ff079, type: 3}
+  - {fileID: 21300000, guid: 39ae895adfef0ad49aea68dfeb2da75e, type: 3}
+  - {fileID: 21300000, guid: 4d0e6e00793da04408548c9f1cfbebab, type: 3}
+  - {fileID: 21300000, guid: 234691f62c33fec4bbc873716225fb27, type: 3}
+  walkSprites:
+  - {fileID: 21300000, guid: cc417afb6802ab641bdcecdc4aced477, type: 3}
+  - {fileID: 21300000, guid: 2314088407588b14fb6f4802b689ea3c, type: 3}
+  - {fileID: 21300000, guid: 704e5169ce457574eb3aa43be345c120, type: 3}
+  - {fileID: 21300000, guid: 14e4f4a19ad10424abae10de89fe98f1, type: 3}
+  - {fileID: 21300000, guid: 7f4560e597cbb3f4c968dab9c52776d0, type: 3}
+  - {fileID: 21300000, guid: 7ebd9720962e8ab45a2fc5de120f6eb9, type: 3}
+  - {fileID: 21300000, guid: 5bc6e9c52a81da34b8db680798f50e72, type: 3}
+  - {fileID: 21300000, guid: e71b4c8412e8ce6438719c90721d4fda, type: 3}
+  attackSprites:
+  - {fileID: 21300000, guid: 9e97626eaf61f994b9ad2efe30a4b9e8, type: 3}
+  - {fileID: 21300000, guid: cbe99b2773bcba1489f1bb0d1c3109e7, type: 3}
+  - {fileID: 21300000, guid: 0a15f2e9b88d00e41b830070bb403174, type: 3}
+  - {fileID: 21300000, guid: d0e77bda6ecd564469e9463efe25ef97, type: 3}
+  - {fileID: 21300000, guid: 48d03ba1bd5221e469230a8a1d2cf824, type: 3}
+  - {fileID: 21300000, guid: deeb30cc4bc6db644a030e2598802f74, type: 3}
+  - {fileID: 21300000, guid: 5baf5d4ea0ce81945a8d8a16f5e86bf4, type: 3}
+  - {fileID: 21300000, guid: fe780767d5e8f6e4fa179aca4245d13b, type: 3}
+  - {fileID: 21300000, guid: 88599d3b3ec0b324da632f2eab5bdaa0, type: 3}
+  - {fileID: 21300000, guid: faf2d144194311b448064f76d89bc6da, type: 3}
+  hurtSprites:
+  - {fileID: 21300000, guid: 8eebaea2a57983b419457adea530fdd5, type: 3}
+  - {fileID: 21300000, guid: d17f8d97812c6d9468f82190ebcd3f25, type: 3}
+  - {fileID: 21300000, guid: a7aca740826b0974fa9409f1ecd37a6c, type: 3}
+  deathSprites:
+  - {fileID: 21300000, guid: a8e246c101d934f4881679860c5d1767, type: 3}
+  - {fileID: 21300000, guid: 04f816914af4b1c4297cd625d71e2d40, type: 3}
+  - {fileID: 21300000, guid: 465346cc9532cde479661ed24af1460b, type: 3}
+  - {fileID: 21300000, guid: f19412806cea2f04abb2e29b0901ffaf, type: 3}
+  - {fileID: 21300000, guid: b0ff1022d77d68d469334982278f68bd, type: 3}
+  - {fileID: 21300000, guid: ac828c0a522f28547a0b35a8c2881fb3, type: 3}
+  - {fileID: 21300000, guid: 94f6bef648a05434fa4ade9a3d059a4d, type: 3}
+  - {fileID: 21300000, guid: eb009f733b7aa9b468cc09b82369acde, type: 3}
+  - {fileID: 21300000, guid: 7be9bc27f8b853a41bf804e369790833, type: 3}
+  - {fileID: 21300000, guid: e8755a5115138a44883c49e071af85dc, type: 3}
+  castSprites:
+  - {fileID: 21300000, guid: e4259675098740546be3ecc9e6d5dc1e, type: 3}
+  - {fileID: 21300000, guid: 9611f09f4ebd208479ee6490ff3b8c10, type: 3}
+  - {fileID: 21300000, guid: f6363c0cf6697df49a55c0481682b9d2, type: 3}
+  - {fileID: 21300000, guid: 57fab01270f16db4daf8462ce78fa858, type: 3}
+  - {fileID: 21300000, guid: c38ff61a562d3fd4fa6b594e146afe38, type: 3}
+  - {fileID: 21300000, guid: 93c9d11cd83f13e4b8c1ff8439958fb3, type: 3}
+  - {fileID: 21300000, guid: 649aa202d1c75644d973f643bd5709a3, type: 3}
+  - {fileID: 21300000, guid: 54f3f5fd7de375448bc1c9531a545b60, type: 3}
+  - {fileID: 21300000, guid: eeb5ed6e2173edc4a8a6f4ddd49de562, type: 3}
+  frameTime: 0.15
 --- !u!61 &6060242505385302419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5145,7 +5214,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.01}
+  m_Offset: {x: -0.032217264, y: -0.73080003}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.25, y: 0.5}
@@ -5155,7 +5224,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.74}
+  m_Size: {x: 1.7087793, y: 2.3104699}
   m_EdgeRadius: 0
 --- !u!82 &1348870525080491595
 AudioSource:
@@ -5254,64 +5323,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-3365899748133386720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6060242505385302408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ae6c7465386c9b4884cf4e74291c4fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossAnim
-  idleSprites:
-  - {fileID: 21300000, guid: ec41e08a9fb909e418b45994dad053b7, type: 3}
-  - {fileID: 21300000, guid: 16d8cccf85d8e074b9292782bad95adb, type: 3}
-  - {fileID: 21300000, guid: 34b236eb5fd0fc54f98eec75b38946c3, type: 3}
-  - {fileID: 21300000, guid: 190d3be58d2303f489c3f70ebbc3650b, type: 3}
-  - {fileID: 21300000, guid: d290f9006b66db040a4950dc130ff079, type: 3}
-  - {fileID: 21300000, guid: 39ae895adfef0ad49aea68dfeb2da75e, type: 3}
-  - {fileID: 21300000, guid: 4d0e6e00793da04408548c9f1cfbebab, type: 3}
-  - {fileID: 21300000, guid: 234691f62c33fec4bbc873716225fb27, type: 3}
-  walkSprites:
-  - {fileID: 21300000, guid: cc417afb6802ab641bdcecdc4aced477, type: 3}
-  - {fileID: 21300000, guid: 2314088407588b14fb6f4802b689ea3c, type: 3}
-  - {fileID: 21300000, guid: 704e5169ce457574eb3aa43be345c120, type: 3}
-  - {fileID: 21300000, guid: 14e4f4a19ad10424abae10de89fe98f1, type: 3}
-  - {fileID: 21300000, guid: 7f4560e597cbb3f4c968dab9c52776d0, type: 3}
-  - {fileID: 21300000, guid: 7ebd9720962e8ab45a2fc5de120f6eb9, type: 3}
-  - {fileID: 21300000, guid: 5bc6e9c52a81da34b8db680798f50e72, type: 3}
-  - {fileID: 21300000, guid: e71b4c8412e8ce6438719c90721d4fda, type: 3}
-  attackSprites:
-  - {fileID: 21300000, guid: 9e97626eaf61f994b9ad2efe30a4b9e8, type: 3}
-  - {fileID: 21300000, guid: cbe99b2773bcba1489f1bb0d1c3109e7, type: 3}
-  - {fileID: 21300000, guid: 0a15f2e9b88d00e41b830070bb403174, type: 3}
-  - {fileID: 21300000, guid: d0e77bda6ecd564469e9463efe25ef97, type: 3}
-  - {fileID: 21300000, guid: 48d03ba1bd5221e469230a8a1d2cf824, type: 3}
-  - {fileID: 21300000, guid: deeb30cc4bc6db644a030e2598802f74, type: 3}
-  - {fileID: 21300000, guid: 5baf5d4ea0ce81945a8d8a16f5e86bf4, type: 3}
-  - {fileID: 21300000, guid: fe780767d5e8f6e4fa179aca4245d13b, type: 3}
-  - {fileID: 21300000, guid: 88599d3b3ec0b324da632f2eab5bdaa0, type: 3}
-  - {fileID: 21300000, guid: faf2d144194311b448064f76d89bc6da, type: 3}
-  hurtSprites:
-  - {fileID: 21300000, guid: 8eebaea2a57983b419457adea530fdd5, type: 3}
-  - {fileID: 21300000, guid: d17f8d97812c6d9468f82190ebcd3f25, type: 3}
-  - {fileID: 21300000, guid: a7aca740826b0974fa9409f1ecd37a6c, type: 3}
-  deathSprites:
-  - {fileID: 21300000, guid: a8e246c101d934f4881679860c5d1767, type: 3}
-  - {fileID: 21300000, guid: 04f816914af4b1c4297cd625d71e2d40, type: 3}
-  - {fileID: 21300000, guid: 465346cc9532cde479661ed24af1460b, type: 3}
-  - {fileID: 21300000, guid: f19412806cea2f04abb2e29b0901ffaf, type: 3}
-  - {fileID: 21300000, guid: b0ff1022d77d68d469334982278f68bd, type: 3}
-  - {fileID: 21300000, guid: ac828c0a522f28547a0b35a8c2881fb3, type: 3}
-  - {fileID: 21300000, guid: 94f6bef648a05434fa4ade9a3d059a4d, type: 3}
-  - {fileID: 21300000, guid: eb009f733b7aa9b468cc09b82369acde, type: 3}
-  - {fileID: 21300000, guid: 7be9bc27f8b853a41bf804e369790833, type: 3}
-  - {fileID: 21300000, guid: e8755a5115138a44883c49e071af85dc, type: 3}
-  frameTime: 0.15
-  attackFrameTime: 0.08
 --- !u!1 &6060242505721527777
 GameObject:
   m_ObjectHideFlags: 0

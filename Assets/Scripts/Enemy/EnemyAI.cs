@@ -186,8 +186,6 @@ public class EnemyAI : MonoBehaviour
         isAttacking = false;
     }
 
-
-
     void MoveTowards(Vector3 targetPos)
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);

@@ -9,7 +9,10 @@ using UnityEngine;
 public class LocalizableString : ScriptableObject
 {
     [Header("Translations")]
+    [TextArea(3, 10)]
     public string english;
+
+    [TextArea(3, 10)]
     public string vietnamese;
 
     /// <summary>

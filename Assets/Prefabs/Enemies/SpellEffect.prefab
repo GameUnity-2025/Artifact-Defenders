@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80c2626a671639449e8946b78adbebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpellEffect
-  damage: 10
+  damage: 70
   target: {fileID: 0}
   effectDuration: 1.5
   startDelay: 0.3

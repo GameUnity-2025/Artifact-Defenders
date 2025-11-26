@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 513106916491329187}
   - component: {fileID: 4725789358998723117}
   - component: {fileID: 5403800181726474168}
+  - component: {fileID: 456191689018937126}
   m_Layer: 0
   m_Name: LevelUpParticle
   m_TagString: Untagged
@@ -4894,3 +4895,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &456191689018937126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638698971132257297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bae74dd162da94aae27542f0a804f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PositionRendererSorter
+  sortingOrderBase: 5000
+  offset: 0
+  runOnlyOnce: 0

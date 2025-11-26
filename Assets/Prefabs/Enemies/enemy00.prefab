@@ -5068,7 +5068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEater: 1
   moveSpeed: 1
-  maxHealth: 40
+  maxHealth: 60
   attackDamage: 0
   attackCooldown: 0
   eatTime: 3

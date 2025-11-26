@@ -5095,12 +5095,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossAI
   moveSpeed: 2
-  maxHealth: 100
-  attackDamage: 5
+  maxHealth: 600
+  attackDamage: 30
   attackCooldown: 4
   attacksBeforeSkill: 3
   skillCastTime: 2
-  skillDamage: 5
+  skillDamage: 0
   spellEffectPrefab: {fileID: 1130483950817898777, guid: 238b5ecb0a34bc2429c1d13ef29e00af,
     type: 3}
   spellOffset: {x: -0.25, y: 1.75, z: 0}

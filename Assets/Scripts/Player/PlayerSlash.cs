@@ -49,8 +49,6 @@ public class PlayerSlash : MonoBehaviour
     }
     void Slash()
     {
-        if (playerMana != null)
-            playerMana.RestoreMana(manaRestore);
         Instantiate(slashPrefab, transform.position, transform.rotation);
         if (playerAnim != null) playerAnim.PlayAttack(0.3f);
         if (playerMovement != null) playerMovement.StopMovementForAttack(0.3f);
@@ -64,10 +62,14 @@ public class PlayerSlash : MonoBehaviour
                 if (enemy != null)
                 {
                     enemy.TakeDamage(damage); // hoặc damage nếu bạn muốn tính theo Player
+                    if (playerMana != null)
+                        playerMana.RestoreMana(manaRestore);
                 }
                 else if (boss != null)
                 {
                     boss.TakeDamage(damage);
+                    if (playerMana != null)
+                        playerMana.RestoreMana(manaRestore);
                 }
             }
 

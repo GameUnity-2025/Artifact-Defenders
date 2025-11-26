@@ -15,6 +15,10 @@ public class BoomerangSkill : MonoBehaviour
     [Header("Mana Cost")] // Mana
     public int manaCost = 15;
 
+    [Header("Auto Aim Settings")]
+    public bool autoAim = true;          // có bật auto aim hay không
+    public float autoAimRange = 8f;
+
     float lastUse = -999f;
     PlayerMana playerMana;
     PlayerMovement playerMovement;
@@ -83,30 +87,94 @@ public class BoomerangSkill : MonoBehaviour
 
         // --- XÁC ĐỊNH HƯỚNG ---
         //boomerang theo hướng di chuyển 
-        Vector2 dir = Vector2.right; // mặc định
+        //Vector2 dir = Vector2.right; // mặc định
 
-        if (playerMovement != null && playerMovement.MoveDirection.sqrMagnitude > 0.1f)
+        //if (playerMovement != null && playerMovement.MoveDirection.sqrMagnitude > 0.1f)
+        //{
+        //    dir = playerMovement.MoveDirection.normalized;
+        //}
+        //else if (aimAtMouse) // fallback PC
+        //{
+        //    var cam = Camera.main;
+        //    if (cam != null)
+        //    {
+        //        Vector3 mouse = cam.ScreenToWorldPoint(Input.mousePosition);
+        //        mouse.z = 0f;
+        //        Vector3 from = firePoint ? firePoint.position : transform.position;
+        //        dir = ((Vector2)(mouse - from)).normalized;
+        //    }
+        //}
+        //else
+        //{
+        //    dir = firePoint ? (Vector2)firePoint.right : Vector2.right;
+        //}
+
+        //// --- SPAWN PROJECTILE ---
+        //var proj = Instantiate(projectilePrefab, spawn, Quaternion.identity);
+        //proj.Launch(this, (Vector2)transform.position, dir, speed, maxDistance, damage, knockback, enemyMask);
+
+        // --- XÁC ĐỊNH HƯỚNG ---
+        // boomerang theo hướng có quái gần nhất trong phạm vi, nếu không có thì fallback như trên
+        Vector2 dir = Vector2.right;
+
+        // 🔹 AUTO AIM: tìm quái gần nhất trong phạm vi
+        if (autoAim)
         {
-            dir = playerMovement.MoveDirection.normalized;
-        }
-        else if (aimAtMouse) // fallback PC
-        {
-            var cam = Camera.main;
-            if (cam != null)
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, autoAimRange, enemyMask);
+            Transform closestEnemy = null;
+            float closestDist = Mathf.Infinity;
+
+            foreach (var e in enemies)
             {
-                Vector3 mouse = cam.ScreenToWorldPoint(Input.mousePosition);
-                mouse.z = 0f;
-                Vector3 from = firePoint ? firePoint.position : transform.position;
-                dir = ((Vector2)(mouse - from)).normalized;
+                float dist = Vector2.Distance(transform.position, e.transform.position);
+                if (dist < closestDist)
+                {
+                    closestDist = dist;
+                    closestEnemy = e.transform;
+                }
+            }
+
+            if (closestEnemy != null)
+            {
+                dir = (closestEnemy.position - transform.position).normalized;
             }
         }
-        else
+
+        // 🔸 Nếu không có auto aim hoặc không tìm thấy địch → fallback
+        if (!autoAim || dir == Vector2.right)
         {
-            dir = firePoint ? (Vector2)firePoint.right : Vector2.right;
+            if (playerMovement != null && playerMovement.MoveDirection.sqrMagnitude > 0.1f)
+            {
+                dir = playerMovement.MoveDirection.normalized;
+            }
+            else if (aimAtMouse)
+            {
+                var cam = Camera.main;
+                if (cam != null)
+                {
+                    Vector3 mouse = cam.ScreenToWorldPoint(Input.mousePosition);
+                    mouse.z = 0f;
+                    Vector3 from = firePoint ? firePoint.position : transform.position;
+                    dir = ((Vector2)(mouse - from)).normalized;
+                }
+            }
+            else
+            {
+                dir = firePoint ? (Vector2)firePoint.right : Vector2.right;
+            }
         }
 
         // --- SPAWN PROJECTILE ---
         var proj = Instantiate(projectilePrefab, spawn, Quaternion.identity);
         proj.Launch(this, (Vector2)transform.position, dir, speed, maxDistance, damage, knockback, enemyMask);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (autoAim)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, autoAimRange);
+        }
     }
 }

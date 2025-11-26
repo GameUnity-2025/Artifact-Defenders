@@ -5068,8 +5068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEater: 0
   moveSpeed: 1
-  maxHealth: 40
-  attackDamage: 1
+  maxHealth: 120
+  attackDamage: 15
   attackCooldown: 2
   eatTime: 0
   bushesMask:

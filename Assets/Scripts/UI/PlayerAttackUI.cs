@@ -5,7 +5,7 @@ public class PlayerAttackUI : MonoBehaviour
 {
     [SerializeField] Text attackText; // Legacy Text
     private int currentAttack = -1;
-
+    [SerializeField] LocalizableString localizableString;
     void Start()
     {
         var slash = FindObjectOfType<PlayerSlash>();
@@ -27,7 +27,7 @@ public class PlayerAttackUI : MonoBehaviour
         if (attack != currentAttack)
         {
             currentAttack = attack;
-            attackText.text = "Attack: " + currentAttack;
+            attackText.text = localizableString.GetString(Localization.currentLanguage) + ": " + currentAttack;
         }
     }
 }

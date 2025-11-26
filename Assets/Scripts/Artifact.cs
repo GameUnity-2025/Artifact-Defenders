@@ -38,6 +38,12 @@ public class Artifact : MonoBehaviour
     {
         health -= amount;
     }
+    public void SetMaxHealth(int newMax)
+    {
+        maxHealth = newMax;
+        health = maxHealth;
+        Debug.Log($"💪 Trụ được tăng máu tối đa lên {maxHealth}");
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.GetComponent<PlayerBackpack>() != null)

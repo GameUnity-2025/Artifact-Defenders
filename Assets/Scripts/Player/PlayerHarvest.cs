@@ -24,7 +24,7 @@ public class PlayerHarvest : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             TryHarvestClose();
         }
@@ -76,4 +76,10 @@ public class PlayerHarvest : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, harvestRadius);
     }
+
+    public void OnHarvestButtonPressed()
+    {
+        TryHarvestClose();
+    }
+
 }
